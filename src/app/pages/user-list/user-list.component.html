@@ -9,5 +9,6 @@
   <app-table-list
     [data]="tableData"
     [columns]="columns"
+    (rowClick)="onRowClick($event)"
   ></app-table-list>
 </nz-card>
