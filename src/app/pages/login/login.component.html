@@ -1,4 +1,7 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+  <!-- Error message -->
+  <nz-alert *ngIf="error" nzType="error" [nzMessage]="error" nzShowIcon class="login-form-margin"></nz-alert>
+
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your username!">
       <nz-input-group nzPrefixIcon="user">
@@ -6,6 +9,7 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
+
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your Password!">
       <nz-input-group nzPrefixIcon="lock">
@@ -13,6 +17,7 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
+
   <div nz-row class="login-form-margin">
     <div nz-col [nzSpan]="12">
       <label nz-checkbox formControlName="remember">
@@ -23,7 +28,16 @@
       <a class="login-form-forgot">Forgot password</a>
     </div>
   </div>
-  <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+
+  <button
+    nz-button
+    class="login-form-button login-form-margin"
+    [nzType]="'primary'"
+    [nzLoading]="loading"
+    [disabled]="validateForm.invalid || loading">
+    Log in
+  </button>
+
   Or
   <a>register now!</a>
 </form>
