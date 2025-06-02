@@ -1,39 +1,28 @@
+<!--menu.component.html-->
 <nz-layout class="app-layout">
   <nz-sider class="menu-sidebar"
-    nzCollapsible
-    nzWidth="256px"
-    nzBreakpoint="md"
-    [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null"
   >
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://hub.allianz.com.my/main/assets/icons/favicon.ico" alt="logo">
-        <h1>Angular Demo App</h1>
+        <h1>Angular Demo</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li *ngFor="let section of sideMenu | keyvalue" nz-submenu nzOpen [nzTitle]="section.value.text" [nzIcon]="section.value.icon">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+          <li *ngFor="let item of section.value.child" nz-menu-item nzMatchRouter>
+            <a [routerLink]="item.routeLink">{{ item.text }}</a>
           </li>
         </ul>
       </li>
     </ul>
+
   </nz-sider>
   <nz-layout>
     <nz-header>

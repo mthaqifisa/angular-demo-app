@@ -1,0 +1,13 @@
+<nz-card nzTitle={{pageTitle}}>
+  <app-search-bar
+    [buttonText]="'Search Users'"
+    [apiUrl]="apiUrl"
+    (searchResults)="onSearchResults($event)"
+    (error)="onSearchError($event)"
+  ></app-search-bar>
+
+  <app-table-list
+    [data]="tableData"
+    [columns]="columns"
+  ></app-table-list>
+</nz-card>
