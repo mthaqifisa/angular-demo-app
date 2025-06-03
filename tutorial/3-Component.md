@@ -4,9 +4,10 @@
 
 ## 3.1 Simplify side menu by loading it dynamically
 1.	Create new folder inside ../src/app/components
-2.	Move root folder from ../src/app/pages into ../src/app/components
+2.	Move root folder from ../src/app/pages into ../src/app/components (if the IDE that you're using doesn't refactor the project automatically, read the errors and if it's related to import path not found, manually update the path accordingly)
 
 ![](./.img/3.1.2.png)
+
 3.	Open ../src/app/components/root/app.components.ts
 4.	Add the following list of side menu inside export class
 ```javascript
@@ -54,6 +55,7 @@ sideMenu = {
 2.	New set of component will be created with 3 main files (.html, .ts, .css)
 
 ![](./.img/3.2.2.png)
+
 3.	Open page-not-found.components.html and replace the file content with the following code:
 ```html 
 <nz-empty class="no-data"></nz-empty>
@@ -66,6 +68,7 @@ sideMenu = {
 6.	Test random sub-path (e.g. http://localhost:4200/unknown) from browser and check if the following image displayed:
 
 ![](./.img/3.2.6.png)
+
 7.	Below are the full content of the code that needs to be updated:
 
 ![](./.img/3.2.7.png)
