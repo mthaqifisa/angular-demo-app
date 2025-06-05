@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import {NzEmptyComponent} from 'ng-zorro-antd/empty';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzResultModule } from 'ng-zorro-antd/result';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
-  imports: [
-    NzEmptyComponent
-  ],
+  imports: [NzButtonModule, NzResultModule, RouterLink],
   template: `
-    <nz-empty class="no-data"></nz-empty>
+    <nz-result style="padding-top: 20%" nzStatus="404" nzTitle="404" nzSubTitle="Sorry, the page you visited does not exist.">
+      <div nz-result-extra>
+        <button nz-button nzType="primary" [routerLink]="'/'">Back Home</button>
+      </div>
+    </nz-result>
   `,
-  styles: `
-  .no-data {
-    padding-top: 30%;
-  }
-  `
+
 })
 export class PageNotFoundComponent {
 

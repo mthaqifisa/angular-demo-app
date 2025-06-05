@@ -10,7 +10,7 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://hub.allianz.com.my/main/assets/icons/favicon.ico" alt="logo">
-        <h1>Angular Demo [{{envName}}]</h1>
+        <h1>Angular Demo</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -30,6 +30,7 @@
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" />
         </span>
+        <span style="padding-right: 30px;float: right; color: gainsboro; ">Environment: {{envName}}</span>
       </div>
     </nz-header>
     <nz-content>
