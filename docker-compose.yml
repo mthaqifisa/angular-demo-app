@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular-demo-app
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+    networks:
+      - angular-network
+
+networks:
+  angular-network:
+    driver: bridge
