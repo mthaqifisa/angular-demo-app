@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
   featureToggle: true,
-  apiUrl: 'https://uat-api.example.com',
-  envName: 'UAT',
+  apiUrl: 'https://sit-api.example.com',
+  envName: 'SIT',
 };

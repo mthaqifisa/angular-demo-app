@@ -5,6 +5,7 @@ import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {KeyValuePipe, NgForOf} from '@angular/common';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +15,7 @@ import {KeyValuePipe, NgForOf} from '@angular/common';
 })
 export class MenuComponent {
   isCollapsed = false;
+  envName = '';
 
   sideMenu = {
     dashboard: {
@@ -31,4 +33,8 @@ export class MenuComponent {
       ]
     }
   };
+
+  ngOnInit() {
+    this.envName = environment.envName;
+  }
 }
