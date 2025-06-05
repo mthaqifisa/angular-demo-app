@@ -9,6 +9,8 @@ echo 3. UAT
 echo.
 set /p env_choice="Enter your choice (1-3): "
 
+docker kill angular-demo-app && docker rm angular-demo-app && docker rmi angular-demo-app-angular-app
+
 if "%env_choice%"=="1" (
     echo.
     echo Deploying Production environment...
