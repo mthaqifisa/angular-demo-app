@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NzTableModule} from 'ng-zorro-antd/table';
 import {NgForOf} from '@angular/common';
 
@@ -14,4 +14,5 @@ import {NgForOf} from '@angular/common';
 export class TableListComponent {
   @Input() data: any[] = [];
   @Input() columns: { fieldName: string; displayText: string }[] = [];
+  @Output() rowClick = new EventEmitter<any>();
 }

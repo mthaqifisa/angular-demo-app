@@ -1,0 +1,65 @@
+<nz-card nzTitle="User Details" *ngIf="userForm">
+  <form [formGroup]="userForm">
+    <!-- Personal Info -->
+    <nz-card nzTitle="Personal Information" style="margin-bottom: 24px;">
+      <nz-form-item>
+        <nz-form-label>Username</nz-form-label>
+        <input nz-input formControlName="username" [disabled]="!isEditMode">
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label>Email</nz-form-label>
+        <input nz-input formControlName="email" [disabled]="!isEditMode">
+      </nz-form-item>
+    </nz-card>
+
+    <!-- Address -->
+    <nz-card nzTitle="Address" style="margin-bottom: 24px;">
+      <div formGroupName="address">
+        <nz-form-item>
+          <nz-form-label>Street</nz-form-label>
+          <input nz-input formControlName="address" [disabled]="!isEditMode">
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label>City</nz-form-label>
+          <input nz-input formControlName="city" [disabled]="!isEditMode">
+        </nz-form-item>
+
+        <!-- Add more address fields similarly -->
+      </div>
+    </nz-card>
+
+    <!-- Bank Info -->
+    <nz-card nzTitle="Bank Information">
+      <div formGroupName="bank">
+        <nz-form-item>
+          <nz-form-label>Card Number</nz-form-label>
+          <input nz-input formControlName="cardNumber" [disabled]="!isEditMode">
+        </nz-form-item>
+
+        <!-- Add more bank fields similarly -->
+      </div>
+    </nz-card>
+  </form>
+
+  <div style="margin-top: 24px;">
+    <button
+      nz-button
+      nzType="primary"
+      (click)="toggleEdit()"
+      style="margin-right: 8px;"
+    >
+      {{ isEditMode ? 'Cancel' : 'Edit' }}
+    </button>
+
+    <button
+      nz-button
+      nzType="primary"
+      *ngIf="isEditMode"
+      (click)="saveChanges()"
+    >
+      Save Changes
+    </button>
+  </div>
+</nz-card>

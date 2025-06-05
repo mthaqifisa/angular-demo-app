@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { FormsModule } from '@angular/forms';
+import { GeneralApiService } from '../../services/general-api.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -21,14 +21,12 @@ export class SearchBarComponent {
 
   searchTerm = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private generalApiService: GeneralApiService) {} //dependency injection
 
   onSearch() {
     if (!this.searchTerm || !this.apiUrl) return;
 
-    const url = `${this.apiUrl}?q=${encodeURIComponent(this.searchTerm)}`;
-
-    this.http.get(url).subscribe({
+    this.generalApiService.searchByKeyword(this.apiUrl, this.searchTerm).subscribe({
       next: (res: any) => this.searchResults.emit(res.users),
       error: (err) => this.error.emit(err)
     });
