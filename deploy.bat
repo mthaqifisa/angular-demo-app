@@ -33,7 +33,7 @@ copy Dockerfile Dockerfile.original > nul
     echo RUN npm ci
     echo COPY . .
     echo RUN npm run build --configuration=%env_name%
-    echo.
+    echo( 
     echo FROM nginx:alpine
     echo COPY --from=build /app/dist/angular-demo-app/browser /usr/share/nginx/html
     echo COPY nginx.conf /etc/nginx/conf.d/default.conf
