@@ -1,0 +1,28 @@
+<div>
+  <h2>Store Data in Different Storage Types</h2>
+
+  <!-- Session Storage -->
+  <label>Session Storage:</label><br>
+  <input [(ngModel)]="sessionKey" placeholder="Enter session key">
+  <input [(ngModel)]="sessionValue" placeholder="Enter session value">
+  <button (click)="setSession()">Save to Session</button><br><br>
+
+  <!-- Local Storage -->
+  <label>Local Storage:</label><br>
+  <input [(ngModel)]="localKey" placeholder="Enter local key">
+  <input [(ngModel)]="localValue" placeholder="Enter local value">
+  <button (click)="setLocal()">Save to Local</button><br><br>
+
+  <!-- Cookies -->
+  <label>Cookies:</label><br>
+  <input [(ngModel)]="cookiesKey" placeholder="Enter cookie key">
+  <input [(ngModel)]="cookiesValue" placeholder="Enter cookie value">
+  <input type="number" [(ngModel)]="cookiesExpiry" placeholder="Expiry (minutes)">
+  <button (click)="setCookies()">Save to Cookies</button><br><br>
+
+  <!-- Application State (NgRx) -->
+  <label>Application State (NgRx):</label><br>
+  <input [(ngModel)]="stateKey" placeholder="Enter state key">
+  <input [(ngModel)]="stateValue" placeholder="Enter state value">
+  <button (click)="setState()">Save to State</button><br><br>
+</div>

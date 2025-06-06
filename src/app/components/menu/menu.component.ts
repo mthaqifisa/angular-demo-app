@@ -18,20 +18,35 @@ export class MenuComponent {
   envName = '';
 
   sideMenu = {
-    dashboard: {
+    a_dashboard: {
       text: 'Dashboard',
       icon: 'dashboard',
       child:[
         { routeLink: '/welcome', text: 'Welcome' },
       ]
     },
-    user: {
+    b_user: {
       text: 'User Management',
       icon: 'user',
       child:[
         { routeLink: '/user-list', text: 'List of User' }
       ]
-    }
+    },
+    c_appStorage: {
+      text: 'Application Storage',
+      icon: 'database',
+      child:[
+        { routeLink: '/view-storage', text: 'View Storage' },
+        { routeLink: '/add-storage', text: 'Add Storage' }
+      ]
+    },
+    d_experiment: {
+      text: 'Experiment',
+      icon: 'experiment',
+      child:[
+        { routeLink: '/not-a-valid-url', text: 'Not a Valid URL' },
+      ]
+    },
   };
 
   ngOnInit() {

@@ -7,7 +7,7 @@ import {RouterLink} from '@angular/router';
   selector: 'app-page-not-found',
   imports: [NzButtonModule, NzResultModule, RouterLink],
   template: `
-    <nz-result style="padding-top: 20%" nzStatus="404" nzTitle="404" nzSubTitle="Sorry, the page you visited does not exist.">
+    <nz-result style="padding-top: 10%" nzStatus="404" nzTitle="404" nzSubTitle="Sorry, the page you visited does not exist.">
       <div nz-result-extra>
         <button nz-button nzType="primary" [routerLink]="'/'">Back Home</button>
       </div>

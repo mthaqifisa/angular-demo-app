@@ -1,0 +1,18 @@
+<div>
+  <h2>Storage Debugger</h2>
+
+  <label>Session Storage:</label><br>
+  <textarea readonly rows="6" >{{ sessionData }}</textarea><br><br>
+
+  <label>Local Storage:</label><br>
+  <textarea readonly rows="6" >{{ localData }}</textarea><br><br>
+
+  <label>Cookies (Current GMT Time: {{ gmtTime }}):</label><br>
+  <textarea readonly rows="6" >{{ cookiesData }}</textarea><br><br>
+
+  <label>Application State (NgRx):</label><br>
+  <textarea readonly rows="6" >{{ appState$ }}</textarea><br><br>
+
+  <button (click)="resetAllStorage()">Reset All Storage</button>
+
+</div>
