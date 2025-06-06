@@ -635,3 +635,27 @@ Debugging NgRx applications is easier with these tools and techniques:
    - Use the `tap` operator to log values in observable streams
    - Use the `debug` custom operator for more detailed logging
    - Break down complex streams into smaller, more manageable pieces
+  
+# Storage Comparison in Web Applications
+
+This table compares different storage mechanisms—Session Storage, Local Storage, Cookies, and Application State (NgRx/RxJS)—to help determine the best fit for your use case.
+
+| Feature            | **Session Storage** 🚀 | **Local Storage** 📦 | **Cookies** 🍪 | **Application State (NgRx/RxJS)** 🔄 |
+|-------------------|----------------------|----------------------|--------------|--------------------------------|
+| **Persistence**   | Until tab is closed  | Permanent (until deleted) | Can expire based on `Max-Age` | Lost on refresh unless persisted |
+| **Storage Limit** | ~5MB                  | ~5-10MB                | ~4KB         | No strict limit (depends on memory) |
+| **Access Scope**  | Client-side only     | Client-side only      | Client & Server | Client-side (Angular store) |
+| **Used For**      | Temporary session data (e.g., session ID) | User settings, cached data | Authentication, tracking | UI state management (reactivity) |
+| **Cleared On Refresh?** | ✅ Yes | ❌ No | ❌ No (if persistent) | ✅ Yes (unless stored externally) |
+| **Data Format**   | String (must manually parse JSON) | String (must manually parse JSON) | Key-value pairs | Observables/State Objects |
+| **Sent to Server?** | ❌ No | ❌ No | ✅ Yes (auto in HTTP requests) | ❌ No |
+| **Expiration Control?** | ❌ No (session-only) | ❌ No (must manually remove) | ✅ Yes (`Max-Age` or `Expires`) | ❌ No (unless manually handled) |
+| **Security**      | Moderate (JS access) | Moderate (JS access) | High (HttpOnly, Secure flags) | High (protected inside app) |
+| **Works Across Tabs?** | ❌ No | ✅ Yes | ✅ Yes | ✅ Yes (unless reset) |
+| **Ideal Use Case** | Short-term session tracking | Persistent client-side storage (user preferences, cache) | Authentication, preferences | UI state, dynamic interactions |
+
+### 💡 Choosing the Right Storage
+- **Use Session Storage** for short-term **temporary session data**.
+- **Use Local Storage** for **persistent client-side** storage (user preferences, cache).
+- **Use Cookies** for **authentication, tracking, and server communication**.
+- **Use Application State (NgRx/RxJS)** for **dynamic UI state management inside Angular apps**.
