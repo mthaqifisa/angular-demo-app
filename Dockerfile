@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN npm run build --configuration=production
+RUN npm run build --configuration=dev
 
 FROM nginx:alpine
 COPY --from=build /app/dist/angular-demo-app/browser /usr/share/nginx/html
