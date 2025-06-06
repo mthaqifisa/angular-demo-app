@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   angular-app:
+    image: angular-demo-app:0.0.3
     build:
       context: .
       dockerfile: Dockerfile

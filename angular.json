@@ -118,7 +118,7 @@
               ]
             }
           },
-          "defaultConfiguration": "uat"
+          "defaultConfiguration": "sit"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
