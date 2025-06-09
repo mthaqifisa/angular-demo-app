@@ -116,9 +116,30 @@
                   "with": "src/environments/environment.dev.ts"
                 }
               ]
+            },
+            "dr": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5000kB",
+                  "maximumError": "10MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dr.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "sit"
+          "defaultConfiguration": "dr"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -134,6 +155,9 @@
             },
             "dev": {
               "buildTarget": "angular-demo-app:build:dev"
+            },
+            "dr": {
+              "buildTarget": "angular-demo-app:build:dr"
             }
           },
           "defaultConfiguration": "dev"
