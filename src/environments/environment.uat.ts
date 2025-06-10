@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
   featureToggle: true,
-  apiUrl: 'https://uat-api.example.com',
+  apiUrl: 'https://dummyjson.com',
   envName: 'UAT',
 };
