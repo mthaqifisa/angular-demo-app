@@ -54,6 +54,22 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Deploy app
+To build application, run ``` ng build --configuration=<env>```
+
+Example: ```ng build --configuration=prod```
+
+**dist** folder will be created inside root path of the application
+
+#### Option 1: serve in server (E.g. using Nginx or http-server or IIS)
+- to use http-server, install it by running ```npm install -g http-server```
+
+- host the application (dist folder) by running ```http-server dist/angular-demo-app/browser```
+
+#### Option 2: deploy in docker (local docker)
+- run the deploy.js script by runnning ```npm run deploy``` and follow the instructions on the screen
+
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
